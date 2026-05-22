@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sabor Caseiro | Pizzaria Artesanal</title>
+
+  <style>
+    :root{
+      --primary: #7a1f1f;
+      --secondary: #a52a2a;
+      --light: #f8f5f2;
+      --dark: #222;
+      --gray: #666;
+      --white: #fff;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height:1.6;
+    }
+
+    img{
+      width:100%;
+      display:block;
+      border-radius:12px;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    h2{
+      font-size:2rem;
+      margin-bottom:20px;
+      color:var(--primary);
+      text-align:center;
+    }
+
+    p.section-text{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 40px;
+      color:var(--gray);
+    }
+
+    /* HERO */
+
+    .hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      color:var(--white);
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    .hero-content{
+      max-width:700px;
+      margin:auto;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      margin-bottom:30px;
+      color:#eee;
+    }
+
+    .btn{
+      display:inline-block;
+      background:var(--secondary);
+      color:var(--white);
+      padding:15px 28px;
+      border-radius:999px;
+      font-weight:bold;
+      transition:0.3s;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover{
+      background:#8b1e1e;
+      transform:translateY(-2px);
+    }
+
+    /* CARDÁPIO */
+
+    .menu-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:25px;
+    }
+
+    .menu-card{
+      background:var(--white);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.3s;
+    }
+
+    .menu-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .menu-content{
+      padding:20px;
+    }
+
+    .menu-content h3{
+      color:var(--primary);
+      margin-bottom:10px;
+    }
+
+    .price{
+      margin-top:15px;
+      font-weight:bold;
+      color:var(--secondary);
+      font-size:1.1rem;
+    }
+
+    /* SOBRE */
+
+    .about{
+      background:var(--white);
+    }
+
+    .about-box{
+      max-width:850px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-box p{
+      color:var(--gray);
+      margin-bottom:15px;
+    }
+
+    /* HORÁRIOS E CONTATO */
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:25px;
+    }
+
+    .info-card{
+      background:var(--white);
+      padding:30px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .info-card h3{
+      color:var(--primary);
+      margin-bottom:15px;
+    }
+
+    .info-card p{
+      color:var(--gray);
+      margin-bottom:10px;
+    }
+
+    /* MAPA */
+
+    .map-container{
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    iframe{
+      width:100%;
+      height:350px;
+      border:0;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:var(--primary);
+      color:var(--white);
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-bottom:15px;
+    }
+
+    .socials a{
+      color:var(--white);
+      font-size:1.5rem;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      transform:scale(1.1);
+    }
+
+    /* WHATSAPP FLOAT */
+
+    .whatsapp-float{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:60px;
+      height:60px;
+      background:#25d366;
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      z-index:999;
+      transition:0.3s;
+    }
+
+    .whatsapp-float:hover{
+      transform:scale(1.08);
+    }
+
+    /* RESPONSIVO */
+
+    @media(min-width:768px){
+
+      .hero h1{
+        font-size:4.2rem;
+      }
+
+      .hero p{
+        font-size:1.3rem;
+      }
+
+      .menu-grid{
+        grid-template-columns:repeat(3, 1fr);
+      }
+
+      .info-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Sabor Caseiro</h1>
+      <p>
+        Pizzas artesanais preparadas com ingredientes selecionados,
+        massa leve e sabor que conquista em cada fatia.
+      </p>
+
+      <a
+        href="https://wa.me/5511999999999"
+        target="_blank"
+        class="btn"
+      >
+        Peça pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO -->
+  <section id="cardapio">
+    <div class="container">
+
+      <h2>Nosso Cardápio</h2>
+
+      <p class="section-text">
+        Opções preparadas diariamente com ingredientes frescos
+        e receitas tradicionais.
+      </p>
+
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop"
+            alt="Pizza Calabresa"
+          />
+
+          <div class="menu-content">
+            <h3>Pizza Calabresa Especial</h3>
+
+            <p>
+              Molho artesanal, mussarela premium,
+              calabresa fatiada e cebola roxa fresca.
+            </p>
+
+            <div class="price">R$ 54,90</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img
+            src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=1000&auto=format&fit=crop"
+            alt="Pizza Marguerita"
+          />
+
+          <div class="menu-content">
+            <h3>Pizza Marguerita</h3>
+
+            <p>
+              Mussarela, tomate fresco, manjericão
+              e toque especial de azeite extra virgem.
+            </p>
+
+            <div class="price">R$ 59,90</div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img
+            src="https://media.istockphoto.com/id/1275737196/pt/foto/pizza-chicken-catupiry.webp?a=1&b=1&s=612x612&w=0&k=20&c=aKsgZZScnr1yyQR9RrIWbXUP2PK7S8wc5cQ0WqNN7Mc="
+            alt="Pizza Frango com Catupiry"
+          />
+
+          <div class="menu-content">
+            <h3>Frango com Catupiry</h3>
+
+            <p>
+              Frango temperado da casa,
+              catupiry cremoso e cobertura gratinada.
+            </p>
+
+            <div class="price">R$ 62,90</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre">
+    <div class="container">
+
+      <h2>Sobre Nós</h2>
+
+      <div class="about-box">
+        <p>
+          A Sabor Caseiro nasceu da tradição familiar de reunir pessoas
+          ao redor da mesa com receitas artesanais e atendimento próximo.
+        </p>
+
+        <p>
+          Trabalhamos com ingredientes selecionados, preparo cuidadoso
+          e entregas rápidas para oferecer uma experiência simples,
+          saborosa e confiável para nossos clientes.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section id="localizacao">
+    <div class="container">
+
+      <h2>Localização</h2>
+
+      <p class="section-text">
+        Estamos localizados em uma região de fácil acesso,
+        com atendimento presencial e delivery.
+      </p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=Avenida+Paulista,+1000,+São+Paulo&output=embed"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HORÁRIOS E CONTATO -->
+  <section>
+    <div class="container">
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3>Horários de Funcionamento</h3>
+
+          <p><strong>Terça a Domingo:</strong> 18h às 23h</p>
+          <p><strong>Segunda-feira:</strong> Fechado</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Contato</h3>
+
+          <p><strong>Telefone:</strong> (11) 4002-8922</p>
+          <p><strong>WhatsApp:</strong> (11) 99999-9999</p>
+          <p><strong>E-mail:</strong> contato@saborcaseiro.com.br</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="socials">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">▶️</a>
+    </div>
+
+    <p>
+      © 2026 Sabor Caseiro — Todos os direitos reservados.
+    </p>
+
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <a
+    href="https://wa.me/5511999999999"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="WhatsApp"
+  >
+    💬
+  </a>
+
+  <script>
+    // Interação simples de feedback no clique do WhatsApp
+
+    const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
+
+    whatsappButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        console.log('Abrindo WhatsApp...');
+      });
+    });
+  </script>
+
+</body>
+</html>
